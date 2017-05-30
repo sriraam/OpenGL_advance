@@ -1,7 +1,7 @@
 #pragma comment (lib, "glew32s.lib")
 #define GLEW_STATIC
 #include<gl/glew.h>
-//#include"shader.h"
+#include"shader.h"
 #include<GL/freeglut.h>
 
 #include<glm/glm.hpp>
@@ -17,12 +17,11 @@ int startX, startY, tracking = 0;
 float alpha = 40.0f, beta = 45.0f;
 float r = 5.25f;
 
-//shader shader_main;
+shader shader_main;
 
 
 void display1()
 {
-	
 	glClearColor(0.0f, 1.0f, 0.0f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	//glFlush();
@@ -58,6 +57,8 @@ void init() {
 
 }
 
+
+
 void processKeys(unsigned char key, int xx, int yy)
 {
 	switch (key) {
@@ -75,6 +76,8 @@ void processKeys(unsigned char key, int xx, int yy)
 	//  uncomment this if not using an idle func
 	glutPostRedisplay();
 }
+
+
 // Mouse Events
 //
 
@@ -150,9 +153,9 @@ void processMouseMotion(int xx, int yy)
 }
 
 
+
 int main(int argc, char** argv)
 {
-
 
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA | GLUT_MULTISAMPLE);
@@ -167,7 +170,7 @@ int main(int argc, char** argv)
 		fprintf(stderr, "Failed to initialize GLEW\n");
 		return -1;
 	}
-	
+	//shader_main.loadshader()
 	
 	init();
 	// glEnable(GL_DEPTH_TEST);
